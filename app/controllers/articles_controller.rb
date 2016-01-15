@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "kuwood", password: "admin", 
+  http_basic_authenticate_with name: "kuwood", password: "admin",
 except: [:index, :show]
 
   def index
@@ -13,6 +13,10 @@ except: [:index, :show]
 
   def new
     @article = Article.new
+  end
+
+  def edit
+    @article = Article.find(params[:id])
   end
 
   def create
